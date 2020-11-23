@@ -1,7 +1,12 @@
 # Assn5
-This is my repo for BIOL 7863 Assignment 5. It contains two Jupyter notebooks, and the necessary data files. 
+This is my repo for BIOL 7863 Assignment 5. 
 
-INSTRUCTIONS TO RUN: 
+INSTRUCTIONS: 
 
-1. "Update_GuestList.ipynb": Run this first, it will create a text file of the updated guest list (Part 3 of the assignment). 
-2. "Adamic_Assn5.ipynb": Run this via command line, as it is written via argument parisng. The input file can be the original guest list, as well as the updated guest list created from the Update_GuestList.ipynb notebook.  It will output the number of people who will eat turkey, and the amount of turkey needed (Parts 1 and 2 of the assignment). 
+1. First run "Update_GuestList.ipynb".  This is a Jupyter notebook that will create a text file "updated_guest_list.txt" in your current directory, which is the Part 3 of the assignment.  
+
+2. Via command line, run: 
+python3 Adamic_Assn5 guest_list.txt
+python3 Adamic_Assn5 updated_guest_list.txt
+
+This will print the number of people who will eat turkey, and the amount of turkey needed (Parts 1 and 2 of the assignment), for both the original and the updated guest list. 
