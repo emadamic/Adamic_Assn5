@@ -1,0 +1,83 @@
+# %%
+
+# Build the parser. 
+
+import argparse 
+
+parser = argparse.ArgumentParser(description='Takes a guest list (people + vegetarian prefernences) and outputs amount of turkey needed for TG feast!')
+
+parser.add_argument('inputfile', help='Input a .txt file that contains guests & vegetarian preference.')
+
+args = parser.parse_args()
+
+# %%
+'''
+PART 1
+'''
+# read in the txt file (from args input file)
+
+with open(args.inputfile) as fob: 
+    
+    guest_list = fob.readlines()
+
+# %%
+# split the guest names + eating preferences into two separate lists
+guest_name=[]
+guest_veg=[]
+for i in guest_list:
+    stripped_guest = i.rstrip()
+    
+    split_guest = stripped_guest.split('\t')  # list of length two 
+    
+    guest_name.append(split_guest[0])
+    guest_veg.append(split_guest[1])
+# %%
+
+# put the eating preferences into separate lists, count the turkey eaters 
+no=[]
+yes=[]
+sometimes=[]
+for i in guest_veg:
+    if i == "No":
+        no.append(i)
+    if i == "Yes":
+        yes.append(i)
+    if i == "Sometimes":
+        sometimes.append(i)
+# %%
+number_turkey_eaters = len(no) + len(sometimes)
+# print(f'There are {number_turkey_eaters} people who will eat turkey.')
+# %%
+'''
+PART 2
+'''
+# open the turkey size, save max guests and min pounds as two separate lists
+with open('turkey_size.txt') as fob: 
+    turkey_size = fob.readlines()
+
+max_guests=[]
+min_pounds=[]
+for line in turkey_size: 
+    stripped_line = line.rstrip()
+    split_line = stripped_line.split() # list of 2 
+    max_guests.append(split_line[0])
+    min_pounds.append(split_line[1])
+
+del max_guests[0]
+del min_pounds[0]
+# %%
+# match up the number_turkey_eaters with the max_guests, and print the min pounds 
+
+# find the index of max people 
+for i in range(len(max_guests)): 
+    if int(max_guests[i]) >= number_turkey_eaters:
+        max_number_people = int(max_guests[i])
+        max_people_index = i
+        break
+        
+# match the max people index to the pounds 
+min_pounds_turkey = min_pounds[max_people_index]
+
+print(f'\nThere are {number_turkey_eaters} people eating turkey.')
+
+print(f'\nYou need at least {min_pounds_turkey} lbs of turkey.\n')
