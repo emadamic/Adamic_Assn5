@@ -7,8 +7,8 @@ INSTRUCTIONS:
 
 2. Via command line, run:
 
-python3 Adamic_Assn5 guest_list.txt
+> python3 Adamic_Assn5 guest_list.txt
 
-python3 Adamic_Assn5 updated_guest_list.txt
+> python3 Adamic_Assn5 updated_guest_list.txt
 
 This will print the number of people who will eat turkey, and the amount of turkey needed (Parts 1 and 2 of the assignment), for both the original and the updated guest list. 
