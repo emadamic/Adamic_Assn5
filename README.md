@@ -5,7 +5,7 @@ INSTRUCTIONS:
 
 1. First run "Update_GuestList.ipynb".  This is a Jupyter notebook that will create a text file "updated_guest_list.txt" in your current directory, which is the Part 3 of the assignment.  
 
-2. Adamic_Assn5 is written via argument parsing. Via command line, run: python3 Adamic_Assn5 <name of guest list txt file>. 
+2. Adamic_Assn5 is written via argument parsing. Via command line, run: python3 Adamic_Assn5 << name of guest list txt file >> 
 
 > python3 Adamic_Assn5 guest_list.txt
 
